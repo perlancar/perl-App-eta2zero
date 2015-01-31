@@ -1,0 +1,61 @@
+#!perl
+
+# DATE
+# VERSION
+
+use 5.010001;
+use strict;
+use warnings;
+
+use Proc::ChildError qw(explain_child_error);
+use Progress::Any '$progress';
+use Progress::Any::Output 'TermProgressBarColor';
+
+sub _run {
+    @ARGV == 1 or die "Usage: eta2zero <command>\n";
+    my $res = `$ARGV[0]`;
+    die "eta2zero: Command failed: " . explain_child_error() if $?;
+    $res += 0;
+}
+
+my $target = _run();
+exit 0 unless $target > 0;
+$progress->target($target);
+$progress->update(pos => 0);
+
+while (1) {
+    sleep 2;
+    my $pos = $target - _run();
+    $progress->update(pos => ($pos));
+    last if $pos >= $target;
+}
+$progress->finish;
+
+1;
+# ABSTRACT: Display countdown progress bar
+# PODNAME:
+
+=head1 SYNOPSIS
+
+ % eta2zero 'command-that-produces-a-number'
+
+Suppose in one terminal you're deleting files in a large directory, which might
+take a while. You can open another terminal, C<cd> to that directory, and type:
+
+ % eta2zero '$[`find -maxdepth 1 | wc -l`] - 1'
+
+It will display a progress bar with ETA:
+
+
+=head1 DESCRIPTION
+
+
+=head1 OPTIONS
+
+
+=head1 FAQ
+
+
+=head1 SEE ALSO
+
+=cut
