@@ -43,7 +43,7 @@ $progress->finish;
 Suppose in one terminal you're deleting files in a large directory, which might
 take a while. You can open another terminal, C<cd> to that directory, and type:
 
- % eta2zero '$[`find -maxdepth 1 | wc -l`] - 1'
+ % eta2zero 'ls | wc -l'
 
 It will display a progress bar with ETA:
 
