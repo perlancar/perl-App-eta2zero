@@ -1,5 +1,12 @@
 Revision history for App-eta2zero
 
+0.03    2015-04-22 (PERLANCAR)
+
+	- No functional changes.
+
+	- Improve example by using 'find -mindepth 1' instead of 'ls'.
+
+
 0.02    2015-02-26 (PERLANCAR)
 
 	- No functional changes.
