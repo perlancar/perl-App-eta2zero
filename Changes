@@ -1,11 +1,11 @@
-0.03    2015-04-22 (PERLANCAR)
+0.03    2015-04-22  Released-By: PERLANCAR
 
 	- No functional changes.
 
 	- Improve example by using 'find -mindepth 1' instead of 'ls'.
 
 
-0.02    2015-02-26 (PERLANCAR)
+0.02    2015-02-26  Released-By: PERLANCAR
 
 	- No functional changes.
 
@@ -13,6 +13,6 @@
 	  works.
 
 
-0.01    2015-01-31 (PERLANCAR)
+0.01    2015-01-31  Released-By: PERLANCAR
 
         - First release.
